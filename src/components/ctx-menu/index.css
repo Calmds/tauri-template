@@ -1,0 +1,141 @@
+/* 右键菜单容器
+.context-menu {
+    z-index: 1000;
+    padding: 2px 0;
+    position: fixed;
+    min-width: 150px;
+    border-radius: 10px;
+    animation: menuFadeIn 0.2s ease-out;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+} */
+
+/* 在 index.css 中添加 */
+.context-menu-active * {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+/* 但允许输入框在正常情况下可以选择文本 */
+input,
+textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.context-menu {
+    z-index: 1000;
+    padding: 6px 0;
+    position: fixed;
+    min-width: 150px;
+    border-radius: 12px;
+    /* background: rgba(255, 255, 255, 0.25); */
+    background: linear-gradient(#DEB887 0, #504848) center no-repeat;
+    background-size: 100% 0.025rem;
+    animation: menuFadeIn 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    backdrop-filter: blur(20px) saturate(1.8);
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: scale(0.95) translateY(-5px);
+    transition: all 0.2s ease;
+}
+
+.context-menu.active {
+    pointer-events: all;
+    transform: scale(1) translateY(0);
+}
+
+/* 菜单项样式 */
+.menu-item {
+    display: flex;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 10px;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+    color: white;
+    transform: translateX(1px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.selectable-text {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+}
+
+.menu-item i {
+    width: 20px;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.menu-item span {
+    flex: 1;
+}
+
+/* 菜单分隔线 */
+.menu-divider {
+    height: 1px;
+    margin: 3px 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 动画效果 */
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 700px) {
+    .context-menu {
+        min-width: 150px;
+        font-size: 14px;
+    }
+
+    .menu-item {
+        padding: 2px;
+    }
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+    .context-menu {
+        background: #2d3748;
+        color: white;
+    }
+
+    .menu-item {
+        color: #e2e8f0;
+    }
+
+    .menu-item:hover {
+        border-radius: 10px;
+        background: linear-gradient(135deg, #191a42 0%, #48386c 100%);
+    }
+}

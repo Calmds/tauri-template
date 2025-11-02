@@ -1,0 +1,5 @@
+/target/
+/logs/
+/gen/schemas
+.DS_store
+Cargo.lock

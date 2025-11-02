@@ -1,0 +1,32 @@
+/* 
+const containerStyle: React.CSSProperties= {
+    WebkitTouchCallout: 'none',
+    WebkitUserSelect: 'none',
+    KhtmlUserSelect: 'none',
+    MozUserSelect: 'none',
+    msUserSelect: 'none',
+    userSelect: 'none',
+    overflow: "initial",
+    padding: "10px",
+}
+*/
+.content {
+    padding: 10px;
+    overflow: initial;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+}
+
+/* 
+{
+        overflowY: "scroll", overflowX: "hidden", height: "calc(100vh)"
+    }
+*/
+.layout-ext {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh);
+}
